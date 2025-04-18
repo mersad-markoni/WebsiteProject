@@ -24,14 +24,14 @@ document.getElementById('distanceForm').addEventListener('submit', async functio
         console.log("End coordinates:", endCoords);
 
         if (!startCoords || !endCoords) {
-            document.getElementById('result').innerText = 'Could not geocode one or both addresses.';
+            document.getElementById('result').innerText = 'Nije moguće pronaći jednu od adresa.';
             return;
         }
 
         calculateDistance(startCoords, endCoords);
     } catch (error) {
         console.error('Error during geocoding:', error);
-        document.getElementById('result').innerText = 'An error occurred during address lookup.';
+        document.getElementById('result').innerText = 'Greška kod traženja adrese.';
     }
 });
 
@@ -118,7 +118,7 @@ function calculateDistance(start, end) {
             const encoded = route?.geometry;
 
             if (!route) {
-                document.getElementById('result').innerText = 'No route found in response.';
+                document.getElementById('result').innerText = 'Ruta nije pronađena.';
                 return;
             }
 
@@ -129,8 +129,6 @@ function calculateDistance(start, end) {
                 <strong>Dužina:</strong> ${distance.toFixed(2)} km<br>
                 <strong>Vrijeme:</strong> ${duration.toFixed(0)} minuta
             `;
-
-            // Optional: draw route if geometry is provided and decodable
             try {
                 const coords = decodePolyline(encoded);
                 if (coords && coords.length > 0) {
@@ -149,6 +147,6 @@ function calculateDistance(start, end) {
         })
         .catch(error => {
             console.error('Error during route calculation:', error);
-            document.getElementById('result').innerText = 'Error calculating route.';
+            document.getElementById('result').innerText = 'Greška u mapiranju rute.';
         });
 }
