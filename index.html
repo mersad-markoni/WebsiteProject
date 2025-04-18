@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="styles.css">
+	<!-- Leaflet CSS -->
+	<link
+	  rel="stylesheet"
+	  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	/>
+
+	<!-- Leaflet JS -->
+	<script
+	  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+	</script>
+
+</head>
+<body>
+    <h1>Distance Calculator</h1>
+<form id="distanceForm">
+    <h2>Adresa 1</h2>
+    <label>Grad: <input type="text" id="startCity" required></label>
+    <label>ZIP: <input type="text" id="startZip" required></label>
+    <label>Ulica: <input type="text" id="startStreet" required></label>
+    <label>Broj: <input type="text" id="startNumber" required></label>
+
+    <h2>Adresa 2</h2>
+    <label>Grad: <input type="text" id="endCity" required></label>
+    <label>ZIP: <input type="text" id="endZip" required></label>
+    <label>Ulica: <input type="text" id="endStreet" required></label>
+    <label>Broj: <input type="text" id="endNumber" required></label>
+
+    <button type="submit">Udaljenost</button>
+</form>
+
+<div id="result"></div>
+<div id="map" style="height: 400px; margin-top: 20px;"></div>
+
+	
+    <script src="script.js"></script>
+</body>
+</html>
